@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.inori.app.model.GoogleIp;
 import org.inori.app.model.IPInfo;
 import org.inori.app.model.IpData;
+import org.inori.app.util.CollectionUtils;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -62,6 +63,7 @@ public class Main {
             System.out.println("---查询完成第" + i + "个IP地址---");
             i ++;
         }
+
         return countryMap;
     }
 
@@ -72,6 +74,9 @@ public class Main {
      */
     private static void write2File(Map<String, List<IPInfo>> countryMap) throws IOException {
         for (String key : countryMap.keySet()) {
+            //给每个地区的ip地址按照延迟排序
+            CollectionUtils.getNewListBySort(countryMap.get(key), "googleIp", "delay");
+
             File xx_net = new File("D:/xx-net/ipv6/" + key, "/ipv6_list.txt");
             File xx_net_detail = new File("D:/xx-net/ipv6/" + key, "ipv6_list_detail.txt");
 
