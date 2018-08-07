@@ -7,6 +7,7 @@ import java.beans.PropertyDescriptor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -95,6 +96,10 @@ public class CollectionUtils {
                         new IllegalArgumentException("布尔类型不提供比较大小");
                     } else if (value1 instanceof Float && value2 instanceof Float) {
 
+                    } else if (value1 instanceof Double && value2 instanceof Double) {
+
+                    } else if (value1 instanceof Date && value2 instanceof Date) {
+                        new IllegalArgumentException("时间的排序暂未去实现");
                     } else if (value1 instanceof String && value2 instanceof String) {
                         new IllegalArgumentException("暂不支持String类型比较大小");
                     } else {
