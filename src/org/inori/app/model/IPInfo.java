@@ -16,12 +16,48 @@ public class IPInfo {
     @JsonProperty("data")
     private IpData ipData;
 
-    private String searchIp;
-
-    private int delay;
+    private GoogleIp googleIp;
 
     public IPInfo() {
 
     }
 
+    public IPInfo(int code, IpData ipData, GoogleIp googleIp) {
+        this.code = code;
+        this.ipData = ipData;
+        this.googleIp = googleIp;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public IpData getIpData() {
+        return ipData;
+    }
+
+    public void setIpData(IpData ipData) {
+        this.ipData = ipData;
+    }
+
+    public GoogleIp getGoogleIp() {
+        return googleIp;
+    }
+
+    public void setGoogleIp(GoogleIp googleIp) {
+        this.googleIp = googleIp;
+    }
+
+    @Override
+    public String toString() {
+        return "IPInfo{" +
+                "code=" + code +
+                ", ipData=" + ipData +
+                ", googleIp=" + googleIp +
+                '}';
+    }
 }
