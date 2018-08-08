@@ -38,8 +38,8 @@ public class CollectionUtils {
 
                 try {
                     int index = 0;
-                    PropertyDescriptor pd1 = null;
-                    PropertyDescriptor pd2 = null;
+                    PropertyDescriptor pd1;
+                    PropertyDescriptor pd2;
                     Object value1 = null;
                     Object value2 = null;
                     for (String pN : propertyName) {
